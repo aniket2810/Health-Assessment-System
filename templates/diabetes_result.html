@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='victus.jpeg') }}">
+    <!-- Author Meta -->
+    <meta name="author" content="Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Description -->
+    <meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane and aniket Lavhe">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="Health Assessment Web-Application">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Multiple Disease Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/diabetes_result.css">
+
+    <!-- PDF-Script -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+        <a href="{{ url_for('index') }}">
+            <h3>.1mg</h3>
+        </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('overview') }}">OVERVIEW</a></li>
+                <li><a href="{{ url_for('diabetes') }}">DIABETES</a></li>
+                <li><a href="{{ url_for('heart') }}">HEART</a></li>
+                <li><a href="{{ url_for('kidney') }}">KIDNEY</a></li>
+                <li><a href="https://github.com/aniket2810/health-assessment-system"><button class="btn success">CODE</button></a></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <section id="heading">
+        <div id="assess">
+            <div class="container">
+                <h2> Diabetes Disease Prediction </h2>
+            </div>
+
+            <!-- Text Area -->
+
+            <!-- <div class="insert">
+                <table id="show">
+                    <thead>
+                        <tr>
+                            <th>{{preg}}</th>
+                            <th>{{glucose}}</th>
+                            <th>{{bp}}</th>
+                            <th>{{st}}</th>
+                            <th>{{insulin}}</th>
+                            <th>{{bmi}}</th>
+                            <th>{{dpf}}</th>
+                            <th>{{age}}</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div> -->
+
+            <!-- Result -->
+            <div class="results">
+                {% if prediction==1 %}
+
+                <h1>Prediction: Patient has High risk of disease</h1>
+
+                <!-- <div class="stuff">
+                    <h4>Precautions: </h4>
+                    <ul>
+                        <li>Eat a healthy, balanced diet, there are 2 types of fat: saturated and unsaturated. You
+                            should avoid food containing saturated fats, because these will increase the levels of
+                            bad cholesterol in your blood.</li>
+                        <li>Be more physically active, regular exercise will make your heart and blood circulatory
+                            system more efficient, lower your cholesterol level, and also keep your blood pressure
+                            at a healthy level.</li>
+                        <li>Give up smoking</li>
+                        <li>Reduce your alcohol consumption, always avoid binge drinking, as this increases the risk
+                            of a heart attack.</li>
+                        <li>Keep your blood pressure under control you can keep your blood pressure under control by
+                            eating a healthy diet low in saturated fat, exercising regularly and, if needed, taking
+                            medicine to lower your blood pressure.</li>
+                        <li>Keep your diabetes under control</li>
+                        <li>You have a greater chance of developing CHD if you have diabetes. Being physically
+                            active and controlling your weight and blood pressure will help manage your blood sugar
+                            level.</li>
+                    </ul>
+                </div> -->
+
+                <div class="button">
+
+                    <button class="btn btn-primary btn-lg" id="download">Download</button>
+
+                </div>
+
+                {% elif prediction==0 %}
+
+
+                <h1>Prediction: Great! You DON'T have diabetes.</h1>
+
+
+                {% endif %}
+            </div>
+
+        </div>
+        <center>
+            <div class="results">
+                <p>Click <a href="{{ url_for('overview') }}">here's</a> to get more info about disease</p>
+                <p>@.1mg.heroku.com</p>
+            </div>
+
+        </center>
+
+
+        <!-- Footer -->
+
+
+        <footer id="Footer">
+
+            <div class="footer">
+                <h3> Multiple Disease Prediction </h3>
+                <p> .1mg an health assessment web-application </p>
+
+                <ul class="socials">
+                    <li><a target="_blank" href="https://github.com/aniket2810/"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/aniket-lavhe-1a8761244"><i
+                                class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+
+            </div>
+            <div class="last">
+                <p>A Machine learning health assessment web-application, build with flask & deployed using Heroku.</p>
+            </div>
+
+
+        </footer>
+
+
+        <script>
+
+            var preloader = document.getElementById('loading');
+
+            window.addEventListener("load", function () {
+                preloader.style.display = "none";
+            })
+
+        </script>
+
+
+        <script type="text/javascript" language="JavaScript">
+            window.onload = function () {
+                document.getElementById("download")
+                    .addEventListener("click", () => {
+                        const invoice = this.document.getElementById("assess");
+                        console.log(invoice);
+                        console.log(window);
+                        var opt = {
+                            margin: 1,
+                            filename: '.1mg.pdf',
+                            image: { type: 'png', quality: 0.98 },
+                            html2canvas: { scale: 2 },
+                            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+                        };
+                        html2pdf().from(invoice).set(opt).save();
+                    })
+            }
+        </script>
+
+
+        <script>
+
+            var list1 = [];
+            var list2 = [];
+            var list3 = [];
+            var list4 = [];
+            var list5 = [];
+            var list6 = [];
+            var list7 = [];
+            var list8 = [];
+
+            var n = 1;
+            var x = 0;
+
+            function AddRow() {
+
+                var AddRown = document.getElementById('show');
+                var NewRow = AddRown.insertRow(n);
+
+                list1[x] = document.getElementById("pregnancies").value;
+                list1[x] = document.getElementById("glucose").value;
+                list1[x] = document.getElementById("bloodpressure").value;
+                list1[x] = document.getElementById("thickness").value;
+                list1[x] = document.getElementById("insulin").value;
+                list2[x] = document.getElementById("bmi").value;
+                list3[x] = document.getElementById("dpf").value;
+                list4[x] = document.getElementById("age").value;
+
+                var cel1 = NewRow.insertCell(0);
+                var cel2 = NewRow.insertCell(1);
+                var cel3 = NewRow.insertCell(2);
+                var cel4 = NewRow.insertCell(3);
+                var cel1 = NewRow.insertCell(4);
+                var cel2 = NewRow.insertCell(5);
+                var cel3 = NewRow.insertCell(6);
+                var cel4 = NewRow.insertCell(7);
+
+                cel1.innerHTML = list1[x];
+                cel2.innerHTML = list2[x];
+                cel3.innerHTML = list3[x];
+                cel4.innerHTML = list4[x];
+                cel1.innerHTML = list5[x];
+                cel2.innerHTML = list6[x];
+                cel3.innerHTML = list7[x];
+                cel4.innerHTML = list8[x];
+
+                n++;
+                x++;
+            }
+
+        </script>
+
+</body>
+
+</html>

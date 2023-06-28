@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='victus.jpeg') }}">
+    <!-- Author Meta -->
+    <meta name="author" content="Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Description -->
+    <meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="Health Assessment Web-Application">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Multiple Disease Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/kidney_result.css">
+
+    <!-- PDF-Script -->
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.js"></script>
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+        <a href="{{ url_for('index') }}">
+            <h3>.1mg</h3>
+        </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('overview') }}">OVERVIEW</a></li>
+                <li><a href="{{ url_for('diabetes') }}">DIABETES</a></li>
+                <li><a href="{{ url_for('heart') }}">HEART</a></li>
+                <li><a href="{{ url_for('kidney') }}">KIDNEY</a></li>
+                <li><a href="https://github.com/aniket2810/health-assessment-system"><button class="btn success">CODE</button></a></li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <section id="heading">
+        <div id="assess">
+            <div class="container">
+                <h2>Kidney Disease Prediction</h2>
+            </div>
+
+            <!-- Text Area -->
+
+            <!-- Result -->
+            <div class="results">
+                {% if prediction==1 %}
+
+                <h1>Prediction: Patient has high risk of kidney disease.</h1>
+
+                <div class="stuff">
+                    <h4>Precautions: </h4>
+                    <ul>
+                        <li>A healthy, balanced diet can reduce your risk of kidney disease by keeping your blood
+                            pressure and cholesterol at a healthy level.</li>
+                        <li>Manage alcohol intake, drinking excessive amounts of alcohol can cause your blood
+                            pressure and cholesterol levels to rise to unhealthy levels.</li>
+                        <li>Regular exercise should help lower your blood pressure and reduce your risk of
+                            developing kidney disease.</li>
+                        <li>Kidney disease can be caused by taking too many non-steroidal anti-inflammatories
+                            (NSAIDs), such as aspirin and ibuprofen, or taking them for longer than recommended.
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="button">
+
+                    <button class="btn btn-primary btn-lg" id="download">Download</button>
+
+                </div>
+
+                {% elif prediction==0 %}
+
+                <h1>Prediction: Great! You DON'T have kidney disease.</h1>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <center>
+            <div class="results">
+                <p>Click <a href="{{ url_for('overview') }}">here</a> to learn more about kidney disease.</p>
+                <p>@.1mg.heroku.com</p>
+            </div>
+
+        </center>
+
+
+        <!-- Footer -->
+
+
+        <footer id="Footer">
+
+            <div class="footer">
+                <h3> Multiple Disease Prediction </h3>
+                <p> .1mg an health assessment web-application </p>
+
+                <ul class="socials">
+                    <li><a target="_blank" href="https://github.com/aniket2810"><i class="fa fa-github"></i></a>
+                    </li>
+                    <li><a target="_blank" href="https://www.linkedin.com/in/aniket-lavhe-1a8761244"><i
+                                class="fa fa-linkedin-square"></i></a></li>
+                </ul>
+            </div>
+
+            <div class="last">
+                <p>A Machine learning health assessment web-application, build with flask & deployed using Heroku.</p>
+            </div>
+
+        </footer>
+
+
+        <script>
+
+            var preloader = document.getElementById('loading');
+
+            window.addEventListener("load", function () {
+                preloader.style.display = "none";
+            })
+
+        </script>
+
+        <script type="text/javascript" language="JavaScript">
+            window.onload = function () {
+                document.getElementById("download")
+                    .addEventListener("click", () => {
+                        const invoice = this.document.getElementById("assess");
+                        console.log(invoice);
+                        console.log(window);
+                        var opt = {
+                            margin: 1,
+                            filename: '.1mg.pdf',
+                            image: { type: 'png', quality: 0.98 },
+                            html2canvas: { scale: 2 },
+                            jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' }
+                        };
+                        html2pdf().from(invoice).set(opt).save();
+                    })
+            }</script>
+
+</body>
+
+</html>

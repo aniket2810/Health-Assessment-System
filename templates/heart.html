@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='victus.jpeg') }}">
+    <!-- Author Meta -->
+    <meta name="author" content="Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Description -->
+    <meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="Health Assessment Web-Application">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Multiple Disease Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/heart.css">
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+        <a href="{{ url_for( 'index') }}">
+            <h3>.1mg</h3>
+        </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('overview') }}">OVERVIEW</a></li>
+                <li><a href="{{ url_for('diabetes') }}">DIABETES</a></li>
+                <li><a class="active" href="{{ url_for('heart') }}">HEART</a></li>
+                <li><a href="{{ url_for('kidney') }}">KIDNEY</a></li>
+                <li><a href="https://github.com/aniket2810/health-assessment-system"><button class="btn success">CODE</button></a></li>
+            </ul>
+        </div>
+    </section>
+
+
+
+    <section id="heading">
+        <div class="container">
+            <h2>Heart Disease Prediction</h2>
+            <p>Please enter the patient details</p>
+        </div>
+
+
+        <!-- Text Area -->
+
+
+        <div class="ml-container">
+            <form action="{{ url_for('heart_predict') }}" method="POST">
+                <div class="form">
+                    <div class="row">
+                        <div class="column-1">
+                            <input class="form-input" type="text" name="age" placeholder="Age (in years)" required
+                                autocomplete="off"><br>
+                            <input class="form-input" type="text" name="sex" placeholder="Sex (1 = Male; 0 = Female)"
+                                required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="cp" placeholder="Chest Pain Type ( 1, 2, 3, 4)"
+                                required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="trestbps"
+                                placeholder="Resting Blood Pressure (in mm Hg)" required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="chol" placeholder="Serum Cholesterol (in mg/dl)"
+                                required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="fbs"
+                                placeholder="Fasting Blood Sugar > 120 mg/dl (1 = True; 0 = False)" required
+                                autocomplete="off"><br>
+                        </div>
+                        <div class="column-2">
+                            <input class="form-input" type="text" name="restecg"
+                                placeholder="Resting Electrocardiograph Results" required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="thalach"
+                                placeholder="Maximum Heart Rate Achieved" required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="exang"
+                                placeholder="Exercise Induced Angina (1 = Yes; 0 = No)" required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="oldpeak"
+                                placeholder="ST Depression Induced by Exercise Relative to Rest" required
+                                autocomplete="off"><br>
+                            <input class="form-input" type="text" name="ca"
+                                placeholder="The Slope of the Peak Exercise ST Segment" required autocomplete="off"><br>
+                            <input class="form-input" type="text" name="insulin"
+                                placeholder="Number of Major Vessels (0-3) Colored by Fluoroscopy" required
+                                autocomplete="off"><br>
+                        </div>
+                    </div>
+                </div>
+                <center><input class="form-input" type="text" name="thal" class="thal"
+                        placeholder="Thal: 1 = Normal; 2 = Fixed Defect; 3 = Reversible Defect" required
+                        autocomplete="off"><br>
+
+                    <input type="submit" class="my-cta-button" value="Predict">
+                </center>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+
+
+    <footer id="Footer">
+
+        <div class="footer">
+            <h3> Multiple Disease Prediction </h3>
+            <p> .1mg an health assessment web-application </p>
+
+            <ul class="socials">
+                <li><a target="_blank" href="https://github.com/aniket2810"><i class="fa fa-github"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/aniket-lavhe-1a8761244"><i
+                            class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="last">
+            <p>A Machine learning health assessment web-application, build with flask & deployed using Heroku</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script>
+
+        var preloader = document.getElementById('loading');
+
+        window.addEventListener("load", function () {
+            preloader.style.display = "none";
+        })
+
+    </script>
+
+</body>
+
+</html>

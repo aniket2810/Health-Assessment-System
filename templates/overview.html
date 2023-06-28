@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for( 'static', filename='victus.jpeg' ) }}">
+    <!-- Author Meta -->
+    <meta name="author" content="Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Description -->
+    <meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="Health Assessment Web-Application">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Multiple Disease Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/overview.css">
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+        <a href="{{ url_for('index') }}">
+            <h3>.1mg</h3>
+        </a>
+        <div>
+            <ul id="navbar">
+                <li><a class="active" href="{{ url_for('overview') }}">OVERVIEW</a></li>
+                <li><a href="{{ url_for('diabetes') }}">DIABETES</a></li>
+                <li><a href="{{ url_for('heart') }}">HEART</a></li>
+                <li><a href="{{ url_for('kidney') }}">KIDNEY</a></li>
+                <li><a href="https://github.com/aniket2810/health-assessment-system"><button class="btn success">CODE</button></a></li>
+            </ul>
+        </div>
+    </section>
+
+
+    <!-- Disease Index -->
+
+
+    <section id="Index">
+        <div class="description">
+            <h2>.1mg - Disease Index</h2>
+            <p>This is a directory of all the diseases that can generate assessment & provide in depth details about the
+                disease including its symptons.</p>
+        </div>
+        <div class="stuff">
+            <h3>1. Diabetes</h3>
+            <center><img src="../static/diabetes.jpg" alt=""></center>
+
+            <p>Diabetes, is a group of metabolic disorders in which there are high blood sugar levels over a prolonged
+                period. Symptoms of high blood sugar include frequent urination, increased thirst, and increased hunger.
+                If left untreated, diabetes can cause many complications. Acute complications can include diabetic
+                ketoacidosis, hyperosmolar hyperglycemic state, or death. Serious long-term complications include
+                cardiovascular disease, stroke, chronic kidney disease, foot ulcers, and damage to the eyes.
+                Diabetes is a disease that can occur when your blood glucose, also called blood sugar, is too high.
+                Blood glucose is your main source of energy and comes from the food you eat. Insulin, a hormone made
+                by the pancreas, which helps glucose from foof get into your cells to be used for energy.
+
+            <h4>Symptons</h4>
+
+            <p>Over time, high glucose leads to problem such as:</p>
+
+            <ul>
+                <li>Feeling more thirsty than usual</li>
+                <li>Urinating often</li>
+                <li>Losing weight without trying</li>
+                <li>Presence of ketones in the urine</li>
+                <li>Feeling tired & weak</li>
+                <li>Having blurry vision</li>
+                <li>Getting lots of infections, such as gum, skin etc...</li>
+            </ul>
+
+        </div>
+
+        <div class="stuff">
+            <h3>2. Heart</h3>
+            <center><img src="../static/heart.jpg" class="heart" alt=""></center>
+
+            <p>Heart disease describes a range of conditions that affect your heart. Diseases under the heart disease
+                umbrella include blood vessel diseases, such as coronary artery disease; heart rhythm problems
+                (arrhythmias); and heart defects you're born with (congenital heart defects), among others.<br>
+                The term "heart disease" is often used interchangeably with the term "cardiovascular disease."
+                Cardiovascular disease generally refers to conditions that involve narrowed or blocked blood vessels
+                that can lead to a heart attack, chest pain (angina) or stroke. Other heart conditions, such as those
+                that affect your heart's muscle, valves or rhythm, also are considered forms of heart disease.<br>
+                Many forms of heart disease can be prevented or treated with healthy lifestyle choices.</p>
+
+            <h4>Symptons</h4>
+
+            <p>Over time, high glucose leads to problem such as:</p>
+
+            <ul>
+                <li>Chest pain, chest tightness, chest pressure and chest discomfort (angina)</li>
+                <li>Shortness of breath</li>
+                <li>Pain in the neck, jaw, throat, upper belly area or back</li>
+                <li>Pain, numbness, weakness or coldness in the legs or arms if the blood vessels in those body areas
+                    are narrowed</li>
+                <li>Slow heartbeat</li>
+                <li>Fluttering in the chest</li>
+            </ul>
+
+        </div>
+
+        <div class="stuff">
+            <h3>3. Kidney</h3>
+            <center><img src="../static/kidney.jpg" class="kidney" alt=""></center>
+
+            <p>The kidneys play key roles in body function, not only by filtering the blood and getting rid of waste
+                products, but also by balancing the electrolyte levels in the body, controlling blood pressure, and
+                stimulating the production of red blood cells.<br>
+
+                The kidneys are located in the abdomen toward the back, normally one on each side of the spine. They get
+                their blood supply through the renal arteries directly from the aorta and send blood back to the heart
+                via the renal veins to the vena cava. (The term "renal" is derived from the Latin name for kidney.)</p>
+
+            <h4>Symptons</h4>
+
+            <p>Over time, high glucose leads to problem such as:</p>
+
+            <ul>
+                <li>Weight loss,and ppor appetite</li>
+                <li>Swollen ankles, feet and hands- as a result of water retention</li>
+                <li>Shortness of breath</li>
+                <li>Tiredness</li>
+                <li>Muscle crampe</li>
+                <li>Feeling sick</li>
+                <li>Headaches</li>
+            </ul>
+
+        </div>
+
+        
+    </section>
+
+
+
+
+
+
+    <!-- Footer -->
+
+
+    <footer id="Footer">
+
+        <div class="footer">
+            <h3> Multiple Disease Prediction </h3>
+            <p> .1mg an health assessment web-app </p>
+
+            <ul class="socials">
+                <li><a target="_blank" href="https://github.com/aniket2810"><i class="fa fa-github"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/aniket-lavhe-1a8761244"><i
+                            class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="last">
+            <p>A Machine learning health assessment web-app, build with flask & deployed using Heroku</p>
+        </div>
+
+    </footer>
+
+
+
+
+
+
+    <script>
+
+        var preloader = document.getElementById('loading');
+
+        window.addEventListener("load", function () {
+            preloader.style.display = "none";
+        })
+
+    </script>
+
+</body>
+
+</html>

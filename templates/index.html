@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Mobile Specific Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{{ url_for('static', filename='victus.jpeg') }}">
+    <!-- Author Meta -->
+    <meta name="author" content="Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Description -->
+    <meta name="description" content="A Machine Learning web-application built and deployed by Dhananjay Bamane and Aniket Lavhe">
+    <!-- Meta Keyword -->
+    <meta name="keywords" content="Health Assessment Web-Application">
+    <!-- meta character set -->
+    <meta charset="UTF-8">
+    <!-- Site Title -->
+    <title>Multiple Disease Prediction</title>
+
+    <link rel="stylesheet" href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+
+<body>
+
+    <!-- PreLoader -->
+
+    <section id="loading">
+        <div class="loader">
+            <div class="inner one"></div>
+            <div class="inner two"></div>
+            <div class="inner three"></div>
+            <div class="loading-text">Loading...</div>
+        </div>
+    </section>
+
+    <!-- Main -->
+
+    <section id="Main">
+        <a href="{{ url_for('index') }}">
+            <h3>.1mg</h3>
+        </a>
+        <div>
+            <ul id="navbar">
+                <li><a href="{{ url_for('overview') }}">OVERVIEW</a></li>
+                <li><a href="{{ url_for('diabetes') }}">DIABETES</a></li>
+                <li><a href="{{ url_for('heart') }}">HEART</a></li>
+                <li><a href="{{ url_for('kidney') }}">KIDNEY</a></li>
+                <li><a href="https://github.com/aniket2810/health-assessment-system"><button class="btn success">CODE</button></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="Front">
+        <div class="container">
+            <h2>Hello! Let's get start with .1mg</h2>
+            <p>Welcome to .1mg, an assessment system for health check-up to generate risk asssesment for the
+                patients. Click below to learn about the diseases that is capable for assessing.</p>
+        </div>
+    </section>
+
+    <section id="Info">
+        <div class="information">
+            <a href="{{ url_for('diabetes') }}">
+                <div class="flex">
+                    <h3>1. Diabetes Disease</h3>
+                    <p>Navigate to the "Diabetes" section and add the corresponding details and click tp predict whether
+                        the
+                        patient is at the risk of disease or not.</p>
+                </div>
+            </a>
+            <a href="{{ url_for('kidney') }}">
+                <div class="flex">
+                    <h3>2. Kidney Disease</h3>
+                    <p>Navigate to the "Kidney" section and add the corresponding details and click tp predict whether
+                        the
+                        patient is at the risk of disease or not.</p>
+                </div>
+            </a>
+            <a href="{{ url_for('heart') }}">
+                <div class="flex">
+                    <h3>3. Heart Disease</h3>
+                    <p>Navigate to the "Heart" section and add the corresponding details and click tp predict whether
+                        the
+                        patient is at the risk of disease or not.</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+ 
+    <!-- Index -->
+    <hr>
+
+    <Section id="Model">
+        <div class="desc">
+            <h1>Model Accuracies</h1>
+            <ul>
+                <li>Diabetes Disease: <strong>74.48%</strong></li>
+                <li>Heart Disease: <strong>98.67%</strong></li>
+                <li>Kidney Disease: <strong>82%</strong></li>
+            </ul>
+        </div>
+    </Section>
+
+
+    <!-- Table -->
+
+
+    <center>
+        <Section id="Table">
+            <div class="table">
+                <!-- <h2>Diabetes:</h2> -->
+                <table>
+                    <tr>
+                        <th>Diabetes Model</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td>Logistic Regression</td>
+                        <td>72.40%</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest Classifier</td>
+                        <td>73.96%</td>
+                    </tr>
+                    <tr>
+                        <td>XGBClassifier</td>
+                        <td>74.48%</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table">
+                <!-- <h2>Kidney:</h2> -->
+                <table>
+                    <tr>
+                        <th>Kidney Model</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td>Support Vector Machine</td>
+                        <td>85%</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest Classifier</td>
+                        <td>85%</td>
+                    </tr>
+                    <tr>
+                        <td>XGBClassifier</td>
+                        <td>90%</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="table">
+                <!-- <h2>Heart:</h2> -->
+                <table>
+                    <tr>
+                        <th>Heart Model</th>
+                        <th>Percentage</th>
+                    </tr>
+                    <tr>
+                        <td>Decision Tree Classifier</td>
+                        <td>97.00%</td>
+                    </tr>
+                    <tr>
+                        <td>Random Forest Classifier</td>
+                        <td>98.67%</td>
+                    </tr>
+                    <tr>
+                        <td>XGBClassifier</td>
+                        <td>97.67%</td>
+                    </tr>
+                </table>
+            </div>
+        </Section>
+    </center>
+
+
+    <!-- Footer -->
+
+
+    <footer id="Footer">
+
+        <div class="footer">
+            <h3> Multiple Disease Prediction </h3>
+            <p> .1mg an health assessment web-application </p>
+
+            <ul class="socials">
+                <li><a target="_blank" href="https://github.com/aniket2810"><i class="fa fa-github"></i></a></li>
+                <li><a target="_blank" href="https://www.linkedin.com/in/aniket-lavhe-1a8761244"><i
+                            class="fa fa-linkedin-square"></i></a></li>
+            </ul>
+        </div>
+
+        <div class="last">
+            <p>A Machine learning health assessment web-application, build with flask & deployed using Heroku</p>
+        </div>
+
+    </footer>
+
+
+    <script>
+
+        var preloader = document.getElementById('loading');
+
+        window.addEventListener("load", function () {
+            preloader.style.display = "none";
+        })
+
+    </script>
+
+</body>
+
+</html>
